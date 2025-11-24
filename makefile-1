@@ -1,0 +1,17 @@
+LIBS    = ecex.lib
+CFLAGS  = /nologo
+LDFLAGS	= /nologo $(LIBS)
+
+lab3.exe: lab3.obj  distance.obj
+
+.obj.exe:
+    link $(LDFLAGS) $** /out:$@
+
+clean:
+    del *.obj *.exe  *.fig *.png *.pdf
+
+cleanall: clean
+	del fig.h randomx.h ecex.lib
+
+
+

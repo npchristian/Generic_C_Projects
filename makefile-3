@@ -1,0 +1,20 @@
+LIBS    = ecex.lib
+CFLAGS  = /nologo /Zi /EHsc
+LDFLAGS = /nologo $(LIBS)
+OBJSFILE= lab5.obj funcs.obj
+OBJSBASE= shape-base.obj shape-io.obj
+OBJS	=  $(OBJSFILE) $(OBJSBASE)
+
+lab5.exe: $(OBJS)
+
+.obj.exe:
+    link $(LDFLAGS) $** /out:$@
+
+clean:
+    del $(OBJSFILE) *.exe *.fig *.png *.pdf *.ilk *.pdb
+
+cleanall: clean
+	del fig.h randomx.h ecex.lib $(OBJSBASE)
+
+
+

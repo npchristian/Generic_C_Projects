@@ -1,0 +1,20 @@
+LIBS    = ecex.lib shape.lib
+CFLAGS  = /nologo
+LDFLAGS = /nologo $(LIBS)
+#CFLAGS      = /nologo /Zi /EHsc
+#LDFLAGS     = /nologo /DEBUG:FULL $(LIBS)
+.obj.exe: 
+    link $(LDFLAGS) $** /out:$@
+
+draw.exe: draw.obj funcs.obj
+
+clean:
+    del $(DRAWOBJS) *.exe *.fig *.png *.pdf *.ilk *.pdb
+
+cleanall: clean
+	del fig.h randomx.h $(LIBS)
+
+
+
+
+

@@ -1,0 +1,16 @@
+LIBS    = ecex.lib
+CFLAGS  = /nologo /Zi /EHsc
+LDFLAGS = /nologo /DEBUG:FULL $(LIBS)
+
+
+polygon.exe: polygon.obj polygon-io.obj shape4.obj
+
+.obj.exe:
+    link $(LDFLAGS) $** /out:$@
+
+clean:
+    del *.obj *.exe *.fig *.png *.pdf *.ilk *.pdb
+
+cleanall: clean
+	del fig.h randomx.h ecex.lib 
+

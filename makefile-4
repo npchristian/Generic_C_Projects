@@ -1,0 +1,20 @@
+LIBS    = ecex.lib
+CFLAGS  = /nologo
+LDFLAGS = /nologo $(LIBS)
+SHAPEOBJS= shape-base.obj shape-sys.obj \
+    arc-base.obj circle-base.obj compound-base.obj ellipse-base.obj \
+    polyline-base.obj polygon-base.obj spline-base.obj text-base.obj 
+DRAWOBJS= draw.obj functions.obj
+OBJS	=  $(DRAWOBJS) $(SHAPEOBJS)
+
+.obj.exe: 
+    link $(LDFLAGS) $** /out:$@
+
+draw.exe: $(OBJS)
+
+clean:
+    del $(DRAWOBJS) *.exe *.fig *.png *.pdf *.ilk *.pdb
+
+cleanall: clean
+	del fig.h randomx.h ecex.lib $(SHAPEOBJS)
+
